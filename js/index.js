@@ -1,0 +1,122 @@
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Your code here
+
+    document.body.style.backgroundColor = 'green';
+
+    //>  ███████████████ OPEN WEATHER API d1a7fcdb2d6f38c6b216b37322444de9
+
+    //>  ████████████████████████████████████  BRIGHT BACKGROUND
+
+    // function getBrightRandomRGB() {
+    //     const rrr = r(86, 255);
+    //     const ggg = r(86, 255);
+    //     const bbb = r(86, 255);
+    //     const rgbColor = `rgb(${rrr}, ${ggg}, ${bbb})`;
+    //     return rgbColor;
+    // }
+
+    // document.body.style.backgroundColor = getBrightRandomRGB();
+
+    //>  ████████████████████████████████████  BRIGHT BACKGROUND GRADIENT
+
+    function getBrightRandomGradientRGB() {
+        const rrr1 = r(86, 255);
+        const ggg1 = r(86, 255);
+        const bbb1 = r(86, 255);
+        const rrr2 = r(86, 255);
+        const ggg2 = r(86, 255);
+        const bbb2 = r(86, 255);
+        const rgbColor1 = `rgb(${rrr1}, ${ggg1}, ${bbb1})`;
+        const rgbColor2 = `rgb(${rrr2}, ${ggg2}, ${bbb2})`;
+        return [rgbColor1, rgbColor2];
+    }
+
+    const [color1, color2] = getBrightRandomGradientRGB();
+    document.body.style.background = `linear-gradient(${color1}, ${color2})`;
+
+    //>  ████████████████████████████████████  DARK TITLE
+
+    function getDarkTitleRGB() {
+        const rrrt = r(45, 125);
+        const gggt = r(45, 125);
+        const bbbt = r(45, 125);
+        const rgbColort = `rgb(${rrrt}, ${gggt}, ${bbbt})`;
+        return rgbColort;
+    }
+
+    const colort = getDarkTitleRGB();
+    console.table(colort); // Log the color to the console for debugging
+    const h1Elements1 = document.querySelectorAll('.h1Dark');
+    h1Elements1.forEach(h1 => {
+        h1.style.color = colort;
+    });
+    //>  ████████████████████████████████████  LIGHT TITLE
+
+    function getLightTitleRGB() {
+        const rrrl = r(86, 255);
+        const gggl = r(86, 255);
+        const bbbl = r(86, 255);
+        const rgbColorl = `rgb(${rrrl}, ${gggl}, ${bbbl})`;
+        return rgbColorl;
+    }
+
+    const colorl = getLightTitleRGB();
+    console.table(colort); // Log the color to the console for debugging
+    const h1Elements2 = document.querySelectorAll('.h1Light');
+    h1Elements2.forEach(h1 => {
+        h1.style.color = colorl;
+    });
+    
+
+    //_ ████████████████████████████████████  DATA STRUCTURES 
+
+    //_ ████████████████████████████████████  DATA STRUCTURES 
+
+    //>  ████████████████████████████████████  GENERAL PROGRAM
+
+    //?  ████████████████████████████████████  ASYNC AWAIT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //>  ████████████████████████████████████  GENERAL PROGRAM
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})
+
+
+
+
+
+// console.log(document.documentElement);
+
+//< ████████████████████████████████████  MISC
+
+
+
