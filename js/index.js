@@ -1,122 +1,94 @@
+import _ from "https://cdn.jsdelivr.net/npm/underscore@1.13.6/modules/index-all.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Your code here
+  // Your code here
 
-    document.body.style.backgroundColor = 'green';
+  document.body.style.backgroundColor = "green";
 
-    //>  ███████████████ OPEN WEATHER API d1a7fcdb2d6f38c6b216b37322444de9
+  //>  ███████████████ OPEN WEATHER API d1a7fcdb2d6f38c6b216b37322444de9
 
-    //>  ████████████████████████████████████  BRIGHT BACKGROUND
-
-    // function getBrightRandomRGB() {
-    //     const rrr = r(86, 255);
-    //     const ggg = r(86, 255);
-    //     const bbb = r(86, 255);
-    //     const rgbColor = `rgb(${rrr}, ${ggg}, ${bbb})`;
-    //     return rgbColor;
-    // }
-
-    // document.body.style.backgroundColor = getBrightRandomRGB();
-
-    //>  ████████████████████████████████████  BRIGHT BACKGROUND GRADIENT
-
-    function getBrightRandomGradientRGB() {
-        const rrr1 = r(86, 255);
-        const ggg1 = r(86, 255);
-        const bbb1 = r(86, 255);
-        const rrr2 = r(86, 255);
-        const ggg2 = r(86, 255);
-        const bbb2 = r(86, 255);
-        const rgbColor1 = `rgb(${rrr1}, ${ggg1}, ${bbb1})`;
-        const rgbColor2 = `rgb(${rrr2}, ${ggg2}, ${bbb2})`;
-        return [rgbColor1, rgbColor2];
+  function r(min, max) {
+    // 2.0, accepts single value for 1-x
+    if (max === undefined) {
+      max = min;
+      min = 1;
     }
+    const randomNumber = min - 1 + Math.ceil(Math.random() * (max + 1 - min));
+    return randomNumber;
+  }
 
-    const [color1, color2] = getBrightRandomGradientRGB();
-    document.body.style.background = `linear-gradient(${color1}, ${color2})`;
+  //>  ████████████████████████████████████  BRIGHT BACKGROUND
 
-    //>  ████████████████████████████████████  DARK TITLE
+  // function getBrightRandomRGB() {
+  //     const rrr = r(86, 255);
+  //     const ggg = r(86, 255);
+  //     const bbb = r(86, 255);
+  //     const rgbColor = `rgb(${rrr}, ${ggg}, ${bbb})`;
+  //     return rgbColor;
+  // }
 
-    function getDarkTitleRGB() {
-        const rrrt = r(45, 125);
-        const gggt = r(45, 125);
-        const bbbt = r(45, 125);
-        const rgbColort = `rgb(${rrrt}, ${gggt}, ${bbbt})`;
-        return rgbColort;
-    }
+  // document.body.style.backgroundColor = getBrightRandomRGB();
 
-    const colort = getDarkTitleRGB();
-    console.table(colort); // Log the color to the console for debugging
-    const h1Elements1 = document.querySelectorAll('.h1Dark');
-    h1Elements1.forEach(h1 => {
-        h1.style.color = colort;
-    });
-    //>  ████████████████████████████████████  LIGHT TITLE
+  //>  ████████████████████████████████████  BRIGHT BACKGROUND GRADIENT
 
-    function getLightTitleRGB() {
-        const rrrl = r(86, 255);
-        const gggl = r(86, 255);
-        const bbbl = r(86, 255);
-        const rgbColorl = `rgb(${rrrl}, ${gggl}, ${bbbl})`;
-        return rgbColorl;
-    }
+  function getBrightRandomGradientRGB() {
+    const rrr1 = r(86, 255);
+    const ggg1 = r(86, 255);
+    const bbb1 = r(86, 255);
+    const rrr2 = r(86, 255);
+    const ggg2 = r(86, 255);
+    const bbb2 = r(86, 255);
+    const rgbColor1 = `rgb(${rrr1}, ${ggg1}, ${bbb1})`;
+    const rgbColor2 = `rgb(${rrr2}, ${ggg2}, ${bbb2})`;
+    return [rgbColor1, rgbColor2];
+  }
 
-    const colorl = getLightTitleRGB();
-    console.table(colort); // Log the color to the console for debugging
-    const h1Elements2 = document.querySelectorAll('.h1Light');
-    h1Elements2.forEach(h1 => {
-        h1.style.color = colorl;
-    });
-    
+  const [color1, color2] = getBrightRandomGradientRGB();
+  document.body.style.background = `linear-gradient(${color1}, ${color2})`;
 
-    //_ ████████████████████████████████████  DATA STRUCTURES 
+  //>  ████████████████████████████████████  DARK TITLE
 
-    //_ ████████████████████████████████████  DATA STRUCTURES 
+  function getDarkTitleRGB() {
+    const rrrt = r(45, 125);
+    const gggt = r(45, 125);
+    const bbbt = r(45, 125);
+    const rgbColort = `rgb(${rrrt}, ${gggt}, ${bbbt})`;
+    return rgbColort;
+  }
 
-    //>  ████████████████████████████████████  GENERAL PROGRAM
+  const colort = getDarkTitleRGB();
+//   console.table(colort); // Log the color to the console for debugging
+  const h1Elements1 = document.querySelectorAll(".h1Dark");
+  h1Elements1.forEach((h1) => {
+    h1.style.color = colort;
+  });
+  //>  ████████████████████████████████████  LIGHT TITLE
+  function getLightTitleRGB() {
+    const rrrl = r(86, 255);
+    const gggl = r(86, 255);
+    const bbbl = r(86, 255);
+    const rgbColorl = `rgb(${rrrl}, ${gggl}, ${bbbl})`;
+    return rgbColorl;
+  }
 
-    //?  ████████████████████████████████████  ASYNC AWAIT
+  const colorl = getLightTitleRGB();
+//   console.table(colort); // Log the color to the console for debugging
+  const h1Elements2 = document.querySelectorAll(".h1Light");
+  h1Elements2.forEach((h1) => {
+    h1.style.color = colorl;
+  });
 
+  //_ ████████████████████████████████████  DATA STRUCTURES
 
+  //_ ████████████████████████████████████  DATA STRUCTURES
 
+  //>  ████████████████████████████████████  GENERAL PROGRAM
 
+  //?  ████████████████████████████████████  ASYNC AWAIT
 
-
-
-
-
-
-
-
-
-
-    //>  ████████████████████████████████████  GENERAL PROGRAM
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
-
-
-
-
+  //>  ████████████████████████████████████  GENERAL PROGRAM
+});
 
 // console.log(document.documentElement);
 
 //< ████████████████████████████████████  MISC
-
-
-
