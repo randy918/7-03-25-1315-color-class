@@ -205,7 +205,7 @@ function getYear00() {
   return codeYear;
 }
 
-function getYear() {
+export function getYear() {
   const today = new Date();
   const codeYear = today.getYear() + 1900;
   return codeYear;
@@ -282,15 +282,7 @@ const days = new Array(
   "Friday",
   "Saturday"
 );
-const daysMin3 = new Array(
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat"
-);
+const daysMin3 = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 const daysMin2 = new Array("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa");
 const daysMin1 = new Array("S", "M", "T", "W", "T", "F", "S");
 const months = new Array(

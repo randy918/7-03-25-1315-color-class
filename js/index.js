@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const colort = getDarkTitleRGB();
-//   console.table(colort); // Log the color to the console for debugging
+  //   console.table(colort); // Log the color to the console for debugging
   const h1Elements1 = document.querySelectorAll(".h1Dark");
   h1Elements1.forEach((h1) => {
     h1.style.color = colort;
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const colorl = getLightTitleRGB();
-//   console.table(colort); // Log the color to the console for debugging
+  //   console.table(colort); // Log the color to the console for debugging
   const h1Elements2 = document.querySelectorAll(".h1Light");
   h1Elements2.forEach((h1) => {
     h1.style.color = colorl;
@@ -91,4 +91,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // console.log(document.documentElement);
 
-//< ████████████████████████████████████  MISC
+//^ ████████████████████████████████████  MISC
