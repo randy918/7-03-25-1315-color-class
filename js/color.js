@@ -4,167 +4,180 @@
 
 console.log("hello");
 
-const colorRGB = {
-    rRGB: 0,
-    gRGB: 0,
-    bRGB: 0, // A comma was missing here
-
-    getRGB: function () {
-        return this.rRGB + ", " + this.gRGB + ", " + this.bRGB;
-    },
-};
-
-const colorHSL = {
-    hHSL: 0,
-    sHSL: 0,
-    lHSL: 0, // A comma was missing here, causing a syntax error
-    getHSL: function () {
-        return this.hHSL + "deg, " + this.sHSL + "%, " + this.lHSL + "%, ";
-    },
-};
-
-const color = {
-    kind: 0,
-
-    rRGB: 0,
-    gRGB: 0,
-    bRGB: 0,
-
-    hHSL: 0,
-    sHSL: 0,
-    lHSL: 0,
-
-    getHSL: function () {
-        return this.hHSL + "deg, " + this.sHSL + "%, " + this.lHSL + "%, ";
-    },
-
-    getRGB: function () {
-        return this.rRGB + ", " + this.gRGB + ", " + this.bRGB;
-    },
-};
-
-//! ████████████████████████████████████ COLOR
-
-class Color {
-    constructor(kind, rRGB, gRGB, bRGB, hHSL, sHSL, lHSL) {
-        if (!Number.isFinite(rRGB) || rRGB < 0)
-            throw new Error("Invalid rRGB: $rRGB");
-
-        if (!Number.isFinite(gRGB) || gRGB < 0)
-            throw new Error("Invalid gRGB: $gRGB");
-
-        if (!Number.isFinite(bRGB) || bRGB < 0)
-            throw new Error("Invalid bRGB: $bRGB");
-
-        if (!Number.isFinite(hHSL) || hHSL < 0)
-            throw new Error("Invalid hHSL: $hHSL");
-
-        if (!Number.isFinite(sHSL) || sHSL < 0)
-            throw new Error("Invalid sHSL: $sHSL");
-
-        if (!Number.isFinite(lHSL) || lHSL < 0)
-            throw new Error("Invalid lHSL: $lHSL");
-
-        this.kind = kind;
-
-        this.rRGB = rRGB;
-        this.gRGB = gRGB;
-        this.bRGB = bRGB;
-
-        this.hHSL = hHSL;
-        this.sHSL = sHSL;
-        this.lHSL = lHSL;
+function random(min, max) {
+    // 2.0, accepts single value for 1-x
+    if (max === undefined) {
+        max = min;
+        min = 1;
     }
-
-    //  getHSL: function () {
-    //     return this.hHSL + "deg, " + this.sHSL + "%, " + this.lHSL + "%, ";
-    //   }
-
-    //   getRGB: function () {
-    //     return this.rRGB + ", " + this.gRGB + ", " + this.bRGB;
-    //   }
+    const randomNumber = min - 1 + Math.ceil(Math.random() * (max + 1 - min));
+    return randomNumber;
 }
 
-let myColor = new Color(0, 255, 0, 0, 0, 100, 50);
-myColor.kind = 1;
-console.log(myColor.kind);
 
-//! ████████████████████████████████████ TRIANGLE
+//! ████████████████████████████████████ COLOR 2
 
-class Triangle {
-    constructor(a, b) {
-        if (!Number.isFinite(a) || a <= 0) throw new Error("Invalid a: " + a);
-
-        if (!Number.isFinite(b) || b <= 0) throw new Error("Invalid b: " + b);
-
-        this.a = a;
-        this.b = b;
+function getBrightRGB() {
+    const r = random(86, 255);
+    const g = random(86, 255);
+    const b = random(86, 255);
+    const rgbColor = `rgb(${r}, ${g}, ${b})`;
+    if (isTooGray(r, g, b)) {
+        return getBrightRGB(); // Recursively call until a bright color is found
     }
-
-    getArea() {
-        return (this.a * this.b) / 2;
-    }
-
-    sayHi() {
-        return "Hello";
-    }
-
-    // getArea() {
-    //   return (this.a * this.b) / 2;
-    // }
-
-    getHype() {
-        return Math.sqrt(this.a * this.a + this.b * this.b);
-    }
+    return rgbColor;
 }
 
-// const myTri = new Triangle();
-// myTri.a = 33;
-// myTri.b = 44;
-// myTri.getArea();
-// myTri.getHype();
-// console.log(myTri.getArea());
-// console.log(myTri.getHype());
-
-//! ████████████████████████████████████ BANK ACCOUNT
-
-class BankAccount {
-    constructor(name, acc, balance = 0) {
-        this.name = name;
-        this.acc = acc;
-        this.balance = balance;
-
-        if (typeof name !== "string" || this.name.trim() === "") {
-            throw new Error("Invalid name: " + this.name);
-        }
-
-        if (typeof acc !== "string" || this.acc.trim() === "") {
-            throw new Error("Invalid account: " + this.acc);
-        }
-
-        if (!Number.isFinite(balance) || this.balance < 0) {
-            throw new Error("Invalid balance: " + this.balance);
-        }
-
-        this.name = name;
-        this.acc = acc;
-        this.balance = balance;
-    }
-
-    deposit(amount) {
-        return this.balance + this.amount;
-    }
-
-    withdraw(amount) {
-        return this.balance - this.amount;
-    }
+function getVividHSL() {
+    const h = random(0, 360);
+    const s = random(80, 100);
+    const l = random(0, 80);
+    const hslColor = `hsl(${h}, ${s}%, ${l}%)`;
+    // if (isTooGray(r1, g1, b1)) {
+    //     return getBrightRGB(); // Recursively call until a bright color is found
+    return hslColor;
 }
 
-const acc1 = new BankAccount("Randy", "123456789", 1000);
+function isTooGray(r, g, b, threshold = 20) {
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    return max - min <= threshold;
+}
 
-console.log(acc1.deposit(100));
+function rgbToHsl(r, g, b)  {
 
-acc1.deposit(299);
+r /= 255;
+g /= 255;
+b /= 255;
 
-console.log(acc1.name);
-acc1.name;
+const max = Math.max(r, g, b);
+const min = Math.min(r, g, b);
+
+let h = 0, s = 0, l = (max + min) / 2;
+
+if (max === min) {
+    h = s = 0; // achromatic
+
+} else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+    switch (max) {
+        case r:
+            h = (g - b) / d + (g < b ? 6 : 0);
+            break;
+        case g:
+            h = (b - r) / d + 2;
+            break;
+        case b:
+            h = (r - g) / d + 4;
+            break;
+    }
+    h = h /6;
+}
+
+return {h: Math.round(h * 360),
+        s: Math.round(s * 100),
+        l: Math.round(l * 100),};
+
+}
+
+function rgbToHsb(r, g, b) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+
+    let h = 0,
+        s = 0,
+        v = max; // In HSB/HSV, Value/Brightness is the max component
+
+    const d = max - min;
+    s = max === 0 ? 0 : d / max;
+
+    if (max !== min) {
+        switch (max) {
+            case r:
+                h = (g - b) / d + (g < b ? 6 : 0);
+                break;
+            case g:
+                h = (b - r) / d + 2;
+                break;
+            case b:
+                h = (r - g) / d + 4;
+                break;
+        }
+        h = h / 6;
+    }
+
+    return { h: Math.round(h * 360),
+             s: Math.round(s * 100),
+             b: Math.round(v * 100) };
+}
+
+function hslToRgb(h, s, l) {
+
+let r, g, b;
+
+s /= 100;
+l /= 100;
+
+if (s === 0) {
+    r = g = b = l; // achromatic
+} else {
+    const hue2rgb = (p, q, t) => {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1 / 6) return p + (q - p) * 6 * t1;
+        if (t < 1 / 2) return q;
+        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+        return p;
+    };
+
+    const q = l < 0.5 ? l * (1 + s) : l + s - l1 * s1;
+    const p = 2 * l - q1;
+    r = hue2rgb(p, q, h / 360 + 1 / 3);
+    g = hue2rgb(p, q, h / 360);
+    b = hue2rgb(p, q, h / 360 - 1 / 3);
+}
+
+return {
+    r: Math.round(r * 255),
+    g: Math.round(g * 255),
+    b: Math.round(b * 255),
+};
+
+
+}
+
+//! ██████████████████████████ GET BRIGHT RGB SINGLE
+
+const h1Test = getBrightRGB();
+
+const h1Elements1 = document.querySelectorAll(".h1Test");
+h1Elements1.forEach((h1) => {
+    h1.style.backgroundColor = h1Test;
+});
+
+console.log(getBrightRGB());
+
+//! ███████████████████████████ GET VIVID HSL SINGLE
+const h2Test = getVividHSL();
+
+const h1Elements2 = document.querySelectorAll(".h2Test");
+h1Elements2.forEach((h2) => {
+    h2.style.backgroundColor = h2Test;
+});
+
+console.log(getVividHSL());
+
+//! █████████████████████████████ CONVERT RGB TO HSL
+
+console.log(rgbToHsl (200, 200, 100));
+
+console.log(rgbToHsb (200, 200, 100));
+
+console.log(hslToRgb (160, 0, 50));
+

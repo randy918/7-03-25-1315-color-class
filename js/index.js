@@ -44,7 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const [color1, color2] = getBrightRandomGradientRGB();
-  document.body.style.background = `linear-gradient(${color1}, ${color2})`;
+  // Set the gradient as a CSS variable on the root element (<html>)
+  document.documentElement.style.setProperty(
+    "--gradient",
+    `linear-gradient(${color1}, ${color2})`
+  );
+  // Add a class to the body to trigger the CSS animation
+  document.body.classList.add("animated-gradient");
 
   //>  ████████████████████████████████████  DARK TITLE
 

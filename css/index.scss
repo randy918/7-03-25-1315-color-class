@@ -10,8 +10,8 @@ body {
 .container {
     width: 20vw;
     height: 10vw;
-    background-color: var(--theGray);
-    // mix-blend-mode: multiply;
+    background-color: var(--theBackground);
+    // mix-blend-mode: screen;
 
     margin: 0 auto;
     display: grid;

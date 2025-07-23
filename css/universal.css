@@ -20,12 +20,12 @@
   --radius-s: 0.5vw;
   --radius-m: 1vw;
   --radius-l: 2vw;
-  --theBackground: hsla(29, 49%, 89%, 1);
+  --theBackground: rgba(255, 255, 255, .7);
   --theGray: hsla(211, 23%, 61%, 0.2);
   --theGreen: hsl(135, 100%, 34%);
   --theRed: hsla(358, 61%, 47%, 0.2);
   --theYellow: hsla(37, 65%, 90%, 1);
-  --modalBackground: hsla(0, 0%, 33%, 1);
+  --modalBackground: rgba(255, 255, 255 .1);
   --bg: hsl(209, 16%, 26%);
   --theRed: hsl(358, 61%, 47%);
   --theOrange: hsl(24, 100%, 50%);
@@ -33,7 +33,6 @@
   --theRodeoBlue: hsl(231, 24%, 59%);
   --theYellow: hsl(37, 65%, 62%);
   --theGray: hsla(211, 16%, 36%, 0.2);
-  --theBackground: hsl(29, 49%, 89%);
   --theDarkGray: hsl(208, 13%, 19%);
   --theBrown: hsl(6, 47%, 27%);
   --bitByBitRed: hsl(349, 87%, 56%);
@@ -92,10 +91,33 @@
 }
 
 body {
-  height: max(100vw, 100vh);
-  overflow-y: hidden;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative; /* Required for positioning the pseudo-element */
 }
 
+/* This pseudo-element will hold and animate our gradient */
+body.animated-gradient::before {
+  content: "";
+  position: absolute;
+  width: 150vmax;
+  height: 150vmax;
+  top: 50%;
+  left: 50%;
+  z-index: -1; /* Place it behind all other content */
+  background: var(--gradient); /* The gradient is set by JS */
+  animation: rotate-gradient 30s linear infinite; /* Adjust 30s to change speed */
+}
+
+@keyframes rotate-gradient {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 h1 {
   font-family: "bold";
   font-size: 8vw;
