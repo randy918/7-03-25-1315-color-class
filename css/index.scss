@@ -17,5 +17,29 @@ body {
     display: grid;
     align-items: center;
     justify-content: center;
-    border-radius:  var(--radius-s);
+    border-radius: var(--radius-s);
+}
+
+.dark2 {
+    font-family: "anton";
+}
+
+//>  ████████████████████████████████████
+
+.container__super {
+    width: var(--width-m);
+    margin: 0 auto;
+    border-radius: var(--radius-m);
+
+}
+
+.container__general {
+    border-radius: var(--radius-m);
+    margin: 0 auto;
+
+    width: 80vw;
+    background-color: black;
+    border-radius: var(--radius-s);
+    padding: var(--padding-m);;
+
 }

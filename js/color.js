@@ -1,6 +1,9 @@
 // import _ from "https://cdn.jsdelivr.net/npm/underscore@1.13.6/modules/index-all.js";
 
 // import { getYear } from "./myfunctions.js";
+document.addEventListener("DOMContentLoaded", function () {
+
+
 
 console.log("hello");
 
@@ -17,6 +20,7 @@ function random(min, max) {
 
 //! ████████████████████████████████████ COLOR 2
 
+
 function getBrightRGB() {
     const r = random(86, 255);
     const g = random(86, 255);
@@ -28,6 +32,7 @@ function getBrightRGB() {
     return rgbColor;
 }
 
+
 function getVividHSL() {
     const h = random(0, 360);
     const s = random(80, 100);
@@ -38,11 +43,13 @@ function getVividHSL() {
     return hslColor;
 }
 
+
 function isTooGray(r, g, b, threshold = 20) {
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
     return max - min <= threshold;
 }
+
 
 function rgbToHsl(r, g, b)  {
 
@@ -169,9 +176,9 @@ const h2Test = getVividHSL();
 const h1Elements2 = document.querySelectorAll(".h2Test");
 h1Elements2.forEach((h2) => {
     h2.style.backgroundColor = h2Test;
+    h2.textContent = "Your desired text phrase";
 });
 
-console.log(getVividHSL());
 
 //! █████████████████████████████ CONVERT RGB TO HSL
 
@@ -181,3 +188,4 @@ console.log(rgbToHsb (200, 200, 100));
 
 console.log(hslToRgb (160, 0, 50));
 
+})

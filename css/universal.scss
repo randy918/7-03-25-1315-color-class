@@ -30,6 +30,8 @@
     --radius-m: 1vw;
     --radius-l: 2vw;
 
+    --width-m: 85vw;
+
     --theBackground: rgba(255, 255, 255, .7);
     --theGray: hsla(211, 23%, 61%, 0.2);
     --theGreen: hsl(135, 100%, 34%);
@@ -158,7 +160,7 @@ h1 {
 }
 
 h2 {
-    font-family: "very-light";
+    font-family: "anton";
     font-size: 6vw;
     color: rgba($color: #ffffff, $alpha: 0.75);
     // letter-spacing: -4vw;
