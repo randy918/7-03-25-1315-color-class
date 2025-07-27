@@ -15,8 +15,8 @@
   --margin-m: 1.5vw;
   --margin-l: 3vw;
   --padding-s: 0.5vw;
-  --padding-m: 1.5vw;
-  --padding-l: 3vw;
+  --padding-m: 1vw;
+  --padding-l: 2vw;
   --radius-s: 0.5vw;
   --radius-m: 1vw;
   --radius-l: 2vw;
@@ -84,6 +84,10 @@
 @font-face {
   font-family: "anton";
   src: url("../fonts/Anton-Regular.ttf");
+}
+@font-face {
+  font-family: "bold-serif";
+  src: url("../fonts/EncodeSans_Expanded-ExtraBold.ttf");
 }
 * {
   font-family: "bold";

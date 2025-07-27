@@ -10,47 +10,56 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/universal.css">
     <link rel="stylesheet" href="css/index.css">
-
 </head>
 
 <body>
 
-    <main>
+   <a href="#" id="reload-button" class="reload-button" title="Reload Page">
+        <i class="fa-solid fa-arrows-rotate"></i>
+    </a>
 
+    <main>
         <h1 class="h1Dark">Class Color</h1>
 
-        <h3 class="container h2Test">Colt Steele</h3>
+        <div class="container__super">
 
-        <div id="app">
-
-            <h2 class="dark2">RGB HSL HSB</h2>
-
-            <h3 class="container h1Test">Colt Steele</h3>
-
-            <div id="app">
-
+            <div class="container__general--title">
+                <h3 class="h1Dark">rgbBright random</h3>
             </div>
-            <br> <br> <br>
 
-            <div class="container__super">
-
-
-                <div class="container__general">
-
-
-                    <h3 class="rgbBright">RGB to Bright</h3>
-
-                    
-
-
+            <div class="container__general">
+                <div class="flex-container">
+                    <div class="rgbBright">default</div>
                 </div>
-
-
             </div>
 
-            <script type="module" src="./js/myfunctions.js"></script>
-            <script type="module" src="./js/color.js"></script>
-            <script type="module" src="./js/index.js"></script>
+
+            <div class="container__general--title">
+                <h3 class="h1Dark">Set rgb</h3>
+            </div>
+
+            <div class="container__general">
+                <div class="flex-container">
+                    <div class="rgbExample">default</div>
+                </div>
+            </div>
+
+            <div class="container__general--title">
+                <h3 class="h1Dark">Vivid hsl 1.0</h3>
+            </div>
+
+            <div class="container__general">
+                <div class="flex-container">
+                    <div class="h2Test">default</div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <script type="module" src="./js/myfunctions.js"></script>
+        <script type="module" src="./js/color.js"></script>
+        <script type="module" src="./js/index.js"></script>
 
     </main>
 

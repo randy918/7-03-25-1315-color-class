@@ -3,6 +3,30 @@ body {
   display: inline-block;
 }
 
+.reload-button {
+  position: fixed; /* Sticks to the viewport */
+  top: var(--distance-m);
+  left: 48vw;
+  z-index: 1000; /* Ensures it's on top of other content */
+  width: 4vw;
+  height: 4vw;
+  background-color: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px); /* Frosted glass effect */
+  border-radius: 50%; /* Makes it circular */
+  display: grid;
+  place-items: center; /* Perfectly centers the icon */
+  color: white;
+  font-size: var(--fontsize-m);
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+.reload-button:hover {
+  transform: scale(1.1) rotate(90deg);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .container {
   width: 20vw;
   height: 10vw;
@@ -11,7 +35,6 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-s);
 }
 
 .dark2 {
@@ -21,14 +44,37 @@ body {
 .container__super {
   width: var(--width-m);
   margin: 0 auto;
-  border-radius: var(--radius-m);
 }
 
 .container__general {
-  border-radius: var(--radius-m);
-  margin: 0 auto;
-  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  justify-items: start;
+  align-items: center;
+  border-radius: 5vw;
   background-color: black;
-  border-radius: var(--radius-s);
-  padding: var(--padding-m);
+}
+.container__general--title {
+  padding: var(--padding-l);
+  padding-bottom: var(--padding-m);
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  height: 100%;
+  padding: var(--padding-l);
+  gap: 2vw;
+}
+
+.flex-container > div {
+  min-width: 16vw;
+  background: #ffecb3;
+  border-radius: 5vw;
+  font-family: "bold-serif";
+  font-size: 1vw;
+  padding: var(--padding-m) var(--padding-m);
 }/*# sourceMappingURL=index.css.map */
